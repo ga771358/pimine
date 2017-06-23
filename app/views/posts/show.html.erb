@@ -24,5 +24,6 @@
   <%= @posts.location %>
 </p>
 
+<%= link_to '我想排', userposts_path(pid:@posts.id) , :method => :post %>
 <%= link_to 'Back', posts_path %>
 

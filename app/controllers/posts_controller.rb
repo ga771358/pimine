@@ -18,6 +18,11 @@ class PostsController < ApplicationController
 		redirect_to posts_path
 	end
 
+	def logout
+		session[:verify] = nil
+		redirect_to users_login_path
+	end
+
 	def post_params
 		params.require(:post).permit(:user_id,:title,:type,:price,:tclick,:location,:content,:is_sold)
 	end

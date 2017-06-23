@@ -1,0 +1,12 @@
+<%= flash[:error] %>
+<%= form_for @user,:url => users_check_login_path do |f| %>
+	
+	<%= f.label :sid ,"Student_id" %>
+	<%= f.text_field :sid %>
+
+	<br>
+
+	<%= f.submit "login" %>
+<% end %>
+
+<%= link_to "register", new_user_path %>

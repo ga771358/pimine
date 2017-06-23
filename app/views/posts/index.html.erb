@@ -1,9 +1,9 @@
 <table>
-		<% @posts.each do |po| %>
+	<% @posts.each do |po| %>
 		<tr>
 			<td><%= po.title %></td>
 			<td><%= po.price %></td>
 			<td><%= link_to 'show', post_path(po) %></td>
 		</tr>
-		<% end %> 
+	<% end %> 
 </table>

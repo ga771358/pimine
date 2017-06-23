@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 	end
 
 	def login
-		if session[:verify] != "done"
+		if session[:verify] == nil
 			@user = User.new
 		else
 			redirect_to posts_path
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 		@user = User.where(:sid => user_params[:sid])
 
 		if @user.count != 0
-			session[:verify]="done"
+			session[:verify]= @user[0].id
 			redirect_to posts_path
 		else
 			flash[:error] = "login failed."

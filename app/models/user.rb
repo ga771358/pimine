@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :posts
     validates :name, presence: true
     validates :sid, presence: true
     validates :email, presence: true
@@ -6,4 +7,5 @@ class User < ApplicationRecord
     validates :score, presence: true
     validates_uniqueness_of :email
     validates_uniqueness_of :sid
+
 end

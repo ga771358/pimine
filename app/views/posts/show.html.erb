@@ -1,6 +1,6 @@
+<div class="container" style="background-color: #eee; border-radius: 5px;padding:20px; transform: translate(0,25px); text-align: center">
 <p id="notice"><%= notice %></p>
-
-<%= image_tag @posts.avatar.url %>
+<%= image_tag @posts.avatar.url ,class: "imagepls_inside"%>
 <p>
   <strong>Title:</strong>
   <%= @posts.title %>
@@ -39,3 +39,4 @@
 <%= link_to 'Back', posts_path , class: "btn btn-primary"%>
 
 
+</div>

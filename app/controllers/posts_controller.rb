@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
+		@post = Post.new
 	end
 
 	def show
@@ -24,6 +25,11 @@ class PostsController < ApplicationController
 		@post = Post.new
 	end
 
+	def search
+		@posts = Post.new
+		@post = Post.where([ "title like ?", "%#{post_params[:title]}%"] )
+		@post = @post.where([ "itype like ?", "%#{post_params[:itype]}%"] )
+	end
 
 	def create
 		@post = Post.new(post_params)

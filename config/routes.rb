@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 	get "users/login" => "users#login"
 	get "posts/complete" => "posts#complete"
 	get "posts/not_finish" => "posts#not_finish"
+	post "posts/search" => "posts#search"
 	post "users/check_login" => "users#check_login"
 	resources :posts,:users,:userposts
 end

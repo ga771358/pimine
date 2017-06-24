@@ -1,19 +1,35 @@
-<%= image_tag @post.avatar.url %>
-<br>
-<%= @post.title %>
-<br>
-<%= @post.price %>
-<br>
-<%= @post.content %>
-<br>
-
-<table>
-	<tr>
-		<% @paipeople.each do |e| %>
-			<td>Buyer:<%= e.user_id %></td>
-			<td><%= link_to "Sell", controller: "posts" ,action: "not_finish_sell",post_id: params[:id],buyer_id: e.user_id %></td>
-		<% end %>
-	</tr>
-</table>
-<br>
-<%= link_to "Back", posts_not_finish_path %>
+<div class="jumbotron">
+	<h1>未完成交易--詳細資料</h1>
+</div>
+<div class="container">
+	<table class="table table-striped" style="background-color: white; padding:15px; ">
+		<tr>
+			<th>標題</th>
+			<th>物品</th>
+			<th>種類</th>
+			<th>價格</th>
+			<th>補充說明</th>
+		</tr>
+		<tr>
+			<td><%= @post.title %></td>
+			<td><%= image_tag @post.avatar.url,class: "imagepls"%></td>
+			<td><%= @post.itype %></td>
+			<td><%= @post.price %></td>
+			<td><%= @post.content %></td>
+		</tr>
+	</table>
+	<table class="table table-striped" style="background-color: white; padding:15px; ">
+		<tr>
+			<th>購買者</th>
+			<th>賣給他</th>
+		</tr>
+		<tr>
+			<% @paipeople.each do |e| %>
+				<td><%= e.user_id %></td>
+				<td><%= link_to "Sell", controller: "posts" ,action: "not_finish_sell",post_id: params[:id],buyer_id: e.user_id %></td>
+			<% end %>
+		</tr>
+	</table>
+	<br>
+	<%= link_to "Back", posts_not_finish_path %>
+</div>

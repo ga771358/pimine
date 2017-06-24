@@ -1,16 +1,30 @@
-<table>
-	<% @post.each do |p| %>
-		<tr>
-			<td><%= p.title %></td>
-			<td><%= p.price %></td>
-			<td><%= link_to 'show', post_path(p) ,class: "btn btn-primary" %></td>
-		</tr>
-	<% end %> 
-</table>
+<div class="jumbotron">
+	<h1>拍賣版</h1>
+</div>
+<div class="container">
+	<div class="rows">
+		<table class="table table-striped" style="background-color: white; padding:15px; ">
+			<tr>
+				<th>標題</th>
+				<th>物品</th>
+				<th>種類</th>
+				<th>價格</th>
+				<th>功能</th>
+			</tr>
+			<% @post.each do |p| %>
+				<tr>
+					<td><%= p.title %></td>
+					<td><%= p.price %></td>
+					<td><%= link_to 'show', post_path(p) ,class: "btn btn-primary" %></td>
+				</tr>
+			<% end %> 
+		</table>
 
-<%= link_to "logout", posts_logout_path,class: "btn btn-primary"  %>
-<%= link_to "New", new_post_path, class: "btn btn-primary"  %>
-<%= link_to "進行中", posts_not_finish_path, class: "btn btn-primary"  %>
-<%= link_to "已完成", posts_complete_path, class: "btn btn-primary"  %>
-<br>
-<%= link_to "Back", posts_path, class: "btn btn-primary"  %>
+		<%= link_to "logout", posts_logout_path,class: "btn btn-primary"  %>
+		<%= link_to "New", new_post_path, class: "btn btn-primary"  %>
+		<%= link_to "進行中", posts_not_finish_path, class: "btn btn-primary"  %>
+		<%= link_to "已完成", posts_complete_path, class: "btn btn-primary"  %>
+		<br>
+		<%= link_to "Back", posts_path, class: "btn btn-warning"  %>
+	</div>
+</div>

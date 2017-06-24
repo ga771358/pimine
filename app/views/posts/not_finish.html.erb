@@ -1,14 +1,24 @@
-<table>
-	<% @n_sell.each do |n| %>
+<div class="jumbotron">
+	<h1>未完成交易</h1>
+</div>
+<div class="container">
+	<table class="table table-striped" style="background-color: white; padding:15px; ">
 		<tr>
-			<td><%= image_tag n.avatar.url %></td>
+			<th>標題</th>
+			<th>物品</th>
+			<th>種類</th>
+			<th>價格</th>
+			<th>功能</th>
 		</tr>
-		<tr>
-			<td><%= n.title %></td>
-		</tr>
-		<tr>
-			<td><%= link_to "Show", controller: "posts", action: "not_finish_show",id: n %></td>
-		</tr>
-	<% end %> 
-</table>
-<%= link_to "Back" ,posts_path %>
+		<% @n_sell.each do |n| %>
+			<tr>
+				<td><%= n.title %></td>
+				<td><%= image_tag n.avatar.url ,class: "imagepls"%></td>
+				<td><%= n.itype %></td>
+				<td><%= n.price %></td>
+				<td><%= link_to "Show", controller: "posts", action: "not_finish_show",id: n %></td>
+			</tr>
+		<% end %> 
+	</table>
+	<%= link_to "Back" ,posts_path %>
+</div>

@@ -62,7 +62,7 @@ class PostsController < ApplicationController
 
 	def not_finish_show
 		@post = Post.find(params[:id])
-		@paipeople = @post.userposts.all 
+		@paipeople = @post.userposts.all
 	end
 
 	def not_finish_sell

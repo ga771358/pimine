@@ -54,6 +54,11 @@ class PostsController < ApplicationController
 		@n_sell = sell.where(is_sold: false)
 	end
 
+	def not_finish_show
+		@post = Post.find(params[:id])
+		@all_pai_people = @post.userposts.all 
+	end
+
 	def post_params
 		params.require(:post).permit(:user_id,:buyer_id,:title,:itype,:price,:tclick,:location,:content,:is_sold,:avatar)
 	end

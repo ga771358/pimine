@@ -1,0 +1,25 @@
+<table>
+    已賣出的商品
+	<% @sellpost.each do |n| %>
+		<tr>
+			<td><%= image_tag n.avatar.url %></td>
+		</tr>
+		<tr>
+			<td><%= n.title %></td>
+            <td><%= n.price %></td>
+		</tr>
+	<% end %> 
+</table>
+<table>
+    已購買的商品
+	<% @buypost.each do |n| %>
+		<tr>
+			<td><%= image_tag n.avatar.url %></td>
+		</tr>
+		<tr>
+			<td><%= n.title %></td>
+            <td><%= n.price %></td>
+		</tr>
+	<% end %> 
+</table>
+<%= link_to "Back" ,posts_path %>

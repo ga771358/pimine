@@ -1,0 +1,19 @@
+<%= image_tag @post.avatar.url %>
+<br>
+<%= @post.title %>
+<br>
+<%= @post.price %>
+<br>
+<%= @post.content %>
+<br>
+
+<table>
+	<tr>
+		<% @paipeople.each do |e| %>
+			<td>Buyer:<%= e.user_id %></td>
+			<td><%= link_to "Sell", controller: "posts" ,action: "not_finish_sell",post_id: params[:id],buyer_id: e.user_id %></td>
+		<% end %>
+	</tr>
+</table>
+<br>
+<%= link_to "Back", posts_not_finish_path %>

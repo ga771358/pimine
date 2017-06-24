@@ -1,8 +1,14 @@
 <table>
 	<% @n_sell.each do |n| %>
 		<tr>
+			<td><%= image_tag n.avatar.url %></td>
+		</tr>
+		<tr>
 			<td><%= n.title %></td>
-			<td><%= n.avatar %></td>
+		</tr>
+		<tr>
+			<td><%= link_to "Show", controller: "posts", action: "not_finish_show",id: n %></td>
 		</tr>
 	<% end %> 
 </table>
+<%= link_to "Back" ,posts_path %>

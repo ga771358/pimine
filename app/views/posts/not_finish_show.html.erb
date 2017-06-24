@@ -26,10 +26,10 @@
 		<tr>
 			<% @paipeople.each do |e| %>
 				<td><%= e.user_id %></td>
-				<td><%= link_to "Sell", controller: "posts" ,action: "not_finish_sell",post_id: params[:id],buyer_id: e.user_id %></td>
+				<td><%= link_to "販賣", controller: "posts" ,action: "not_finish_sell",post_id: params[:id],buyer_id: e.user_id %></td>
 			<% end %>
 		</tr>
 	</table>
 	<br>
-	<%= link_to "Back", posts_not_finish_path %>
+	<%= link_to "Back", posts_not_finish_path,class: "btn btn-warning" %>
 </div>

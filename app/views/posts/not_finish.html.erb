@@ -16,9 +16,9 @@
 				<td><%= image_tag n.avatar.url ,class: "imagepls"%></td>
 				<td><%= n.itype %></td>
 				<td><%= n.price %></td>
-				<td><%= link_to "Show", controller: "posts", action: "not_finish_show",id: n %></td>
+				<td><%= link_to "詳細內容", controller: "posts", action: "not_finish_show",id: n %></td>
 			</tr>
 		<% end %> 
 	</table>
-	<%= link_to "Back" ,posts_path %>
+	<%= link_to "Back" ,posts_path,class: "btn btn-warning" %>
 </div>

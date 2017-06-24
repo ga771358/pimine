@@ -29,6 +29,7 @@
 	<%= f.file_field :avatar %>
 
 	<%= f.hidden_field :is_sold, value: false %>
+	<%= f.hidden_field :buyer_id, value: -1 %>
 
 	<%= f.submit  "新增物品" ,class: "btn btn-primary" %>
 <% end %>

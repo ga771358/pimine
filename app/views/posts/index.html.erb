@@ -9,4 +9,6 @@
 </table>
 
 <%= link_to "logout", posts_logout_path,class: "btn btn-primary"  %>
-<%= link_to "New", new_post_path,class: "btn btn-primary"  %>
+<%= link_to "New", new_post_path, class: "btn btn-primary"  %>
+<%= link_to "進行中", posts_not_finish_path, class: "btn btn-primary"  %>
+<%= link_to "已完成", posts_complete_path, class: "btn btn-primary"  %>

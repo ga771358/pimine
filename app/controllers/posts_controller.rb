@@ -7,7 +7,6 @@ class PostsController < ApplicationController
 		@posts = Post.find(params[:id])
 		if session[:verify] != @posts.user_id
             if @posts.userposts.where(user_id: session[:verify]).size == 0
-                @posts.userposts.create(user_id: session[:verify])
 				@buy_twice = false
             else
 				@buy_twice = true
@@ -22,6 +21,7 @@ class PostsController < ApplicationController
 		@post = Post.new
 	end
 
+
 	def create
 		@post = Post.new(post_params)
 		@post.user_id = session[:verify]
@@ -35,7 +35,18 @@ class PostsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def complete
+		sell = Post.where(user_id: session[:verify])
+		@c_sell = sell.where(is_sold: true)
+		@buy = Post.where(buyer_id: session[:verify])
+	end
+
+	def not_finish
+		sell = Post.where(user_id: session[:verify])
+		@n_sell = sell.where(is_sold: false)
+	end
+
 	def post_params
-		params.require(:post).permit(:user_id,:title,:itype,:price,:tclick,:location,:content,:is_sold,:avatar)
+		params.require(:post).permit(:user_id,:buyer_id,:title,:itype,:price,:tclick,:location,:content,:is_sold,:avatar)
 	end
 end

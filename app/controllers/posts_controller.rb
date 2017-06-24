@@ -19,10 +19,10 @@ class PostsController < ApplicationController
 
 	def logout
 		session[:verify] = nil
-		redirect_to users_login_path
+		redirect_to root_path
 	end
 
 	def post_params
-		params.require(:post).permit(:user_id,:title,:type,:price,:tclick,:location,:content,:is_sold,:avatar)
+		params.require(:post).permit(:user_id,:title,:itype,:price,:tclick,:location,:content,:is_sold,:avatar)
 	end
 end

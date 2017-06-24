@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Concert+One|Freckle+Face|Jura:400,700|Monoton|Sacramento|Sigmar+One|Syncopate|Unica+One|VT323');
 
-* {
-	vertical-align: center;
-}
 body{
 	background-image: linear-gradient( 90deg, #ea4c89, #e85068 50%, #e55e4e 100% ) ;
 	background-size : cover;
@@ -10,33 +7,33 @@ body{
 	height: 100%;
 	margin: 0;
 }
-#content{
+.mainp #content{
 	width: 100%;
 	height:100%;
 
 }
-#nav{
+.mainp #nav{
 	position: absolute;
 	right: 0;
 }
-header{
+.mainp header{
 	height: 15vh;
 	width: 100%;
 	border-bottom: 5px solid #eee;
 	overflow: hidden;
 }
 
-#logo{
+.mainp #logo{
 
 	width: auto;
 	height: 100%;
 
 }
-#bu-contain{
+.mainp #bu-contain{
 	bottom: 0;
 	float:right;
 }
-.button{
+.mainp .button{
 	float:right;
 	border: 1px white solid;
 	background-color:rgb(225,80,120);
@@ -49,7 +46,7 @@ header{
     -webkit-transform: scale(.8); 
     transform: scale(.8); 
 }
-.button:hover{ 
+.mainp .button:hover{ 
   -webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
     -o-transition: all 0.2s linear;
@@ -62,32 +59,32 @@ header{
     transform: scale(1); 
  
 }
-a{
+.mainp a{
 	text-align: center;
 	text-decoration:none;
 	-webkit-text-decoration:none;
 }
-.button a{
+.mainp .button a{
 	color:#eee;
 	cursor:pointer;
 	font-size: 30px;
 	font-family: 'Jura', sans-serif;
 }
 
-#b1 {
+.mainp #b1 {
 	display: inline;
 	margin-right:2%;
 }
-#b2{
+.mainp #b2{
 	display: inline;
 }
-#sm{
+.mainp #sm{
 }
-#en{
+.mainp #en{
 	font-size: 88px;
 	font-family: 'Jura', sans-serif;
 }
-#slogan{
+.mainp #slogan{
 
 	 display: table-cell;
 	height:60vh;
@@ -99,7 +96,7 @@ a{
 
 
 }
-#but{
+.mainp #but{
 	border: 5px white solid;
 	border-radius: 3px;
 	padding: 0 2.5%;
@@ -115,7 +112,7 @@ a{
 
 
 }
-#but:hover{
+.mainp #but:hover{
 	cursor: pointer;
 	border: 5px rgb(233,83,90) solid;
 	background-color: #fff;
@@ -124,11 +121,11 @@ a{
 
 }
 
-#temp_temp{
+.mainp #temp_temp{
 	width: 100%;
 	height: auto;
 }
 
-footer{
+.mainp footer{
 	height:10vh;
 }

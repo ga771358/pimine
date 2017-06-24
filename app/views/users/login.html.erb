@@ -1,16 +1,22 @@
-<div class="container">
-	<div clas="rows">
+<div class="loginp">
+	<div id="space"></div>
+	<div id="head">
+		<%= image_tag "pipi.png",class: "lll" %>
+	</div>
+	<div id="form">
+	<%= form_for @user,:url => users_check_login_path do |f| %>
+	<div id="row1">
+		<%= f.label :sid ,"帳號：" %>
+		<%= f.text_field :sid %>
+	</div>
+	<div id="row2">
+		密碼：<input type="password" name="password">
+	</div>
+		<%= f.submit "登錄" ,class: "btn btn-primary" %>
+	<% end %>
 		<%= flash[:error] %>
-		<%= form_for @user,:url => users_check_login_path do |f| %>
-			
-			<%= f.label :sid ,"Student_id" %>
-			<%= f.text_field :sid %>
-
-			<br>
-
-			<%= f.submit "login" ,class: "btn btn-primary" %>
-		<% end %>
-
-		<%= link_to "register", new_user_path, class: "btn btn-info" %>
+		<button> <%= link_to "註冊", new_user_path %> </button>
+		<button> <%= link_to "首頁", root_path %> </button>
+	</form>
 	</div>
 </div>

@@ -7,7 +7,13 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		@user.save
 
-		redirect_to users_login_path
+		if @user.errors.any?
+
+			flash[:error]= @user.errors.full_messages
+			redirect_to new_user_path
+		else
+			redirect_to users_login_path
+		end
 	end
 
 	def login

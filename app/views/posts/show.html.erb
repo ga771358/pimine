@@ -27,7 +27,7 @@
 
 
 <% if @same_user == false and @buy_twice == false %>
-  <%= link_to '我想排', userposts_path(pid:@posts.id) , :method => :post %>
+  <%= link_to '我想排', userposts_path(pid:@posts.id) , :method => :post , class: "btn btn-primary" %>
 <% end %>
 <% if @same_user == true %>
   <p>你的貼文唷</p>
@@ -36,6 +36,6 @@
   <p>已經排過了</p>
 <% end %>
 
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path , class: "btn btn-primary"%>
 
 

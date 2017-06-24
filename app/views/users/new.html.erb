@@ -15,7 +15,7 @@
 	<%= f.hidden_field :tnum , value: "0" %>
 	<%= f.hidden_field :score , value: "0" %>
 
-	<%= f.submit "Create" %>
+	<%= f.submit "Create" ,class: "btn btn-primary" %>
 <% end %>
 
-<%= link_to "login", users_login_path %>
+<%= link_to "login", users_login_path ,class: "btn btn-info"  %>

@@ -25,6 +25,7 @@
   <%= @posts.location %>
 </p>
 
+
 <% if @same_user == false and @buy_twice == false %>
   <%= link_to '我想排', userposts_path(pid:@posts.id) , :method => :post %>
 <% end %>
@@ -36,4 +37,5 @@
 <% end %>
 
 <%= link_to 'Back', posts_path %>
+
 

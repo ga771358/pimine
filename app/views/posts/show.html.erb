@@ -25,9 +25,15 @@
   <%= @posts.location %>
 </p>
 
-<%= link_to '我想排', userposts_path(pid:@posts.id) , :method => :post %>
-<%= @same_user %>
-<%= @buy %>
-<%= @sell %>
+<% if @same_user == false and @buy_twice == false %>
+  <%= link_to '我想排', userposts_path(pid:@posts.id) , :method => :post %>
+<% end %>
+<% if @same_user == true %>
+  <p>你的貼文唷</p>
+<% end %>
+<% if @buy_twice == true %>
+  <p>已經排過了</p>
+<% end %>
+
 <%= link_to 'Back', posts_path %>
 

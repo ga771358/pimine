@@ -5,6 +5,17 @@ class PostsController < ApplicationController
 
 	def show
 		@posts = Post.find(params[:id])
+		if session[:verify] != @posts.user_id
+            if @posts.userposts.where(user_id: session[:verify]).size == 0
+                @posts.userposts.create(user_id: session[:verify])
+				@buy_twice = false
+            else
+				@buy_twice = true
+            end
+            @same_user = false
+        else
+            @same_user = true
+        end
 	end
 
 	def new

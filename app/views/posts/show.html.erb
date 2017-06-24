@@ -25,9 +25,9 @@
   <%= @posts.location %>
 </p>
 
-<%= link_to '我想排', userposts_path(pid:@posts.id) , :method => :post %>
+<%= link_to '我想排', userposts_path(pid:@posts.id) , :method => :post ,class: "btn btn-primary" %>
 <%= @same_user %>
 <%= @buy %>
 <%= @sell %>
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path ,class: "btn btn-primary" %>
 

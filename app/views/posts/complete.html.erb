@@ -1,25 +1,39 @@
-<table>
-    已賣出的商品
+<div class="jumbotron">
+	<h1>已完成交易</h1>
+</div><div class="container">
+<h3>已賣出的商品</h3>
+<table class="table table-striped" style="background-color: white; padding:15px; ">
+	<tr>
+		<th>標題</th>
+		<th>物品</th>
+		<th>種類</th>
+		<th>價格</th>
+	</tr>
 	<% @sellpost.each do |n| %>
 		<tr>
-			<td><%= image_tag n.avatar.url %></td>
-		</tr>
-		<tr>
 			<td><%= n.title %></td>
+			<td><%= image_tag n.avatar.url ,class: "imagepls"%></td>
+            <td><%= n.itype %></td>
             <td><%= n.price %></td>
 		</tr>
 	<% end %> 
 </table>
-<table>
-    已購買的商品
+<h3>已購買的商品</h3>
+<table class="table table-striped" style="background-color: white; padding:15px; ">
+	<tr>
+		<th>標題</th>
+		<th>物品</th>
+		<th>種類</th>
+		<th>價格</th>
+	</tr>
 	<% @buypost.each do |n| %>
 		<tr>
-			<td><%= image_tag n.avatar.url %></td>
-		</tr>
-		<tr>
 			<td><%= n.title %></td>
+			<td><%= image_tag n.avatar.url ,class: "imagepls"%></td>
+            <td><%= n.itype %></td>
             <td><%= n.price %></td>
 		</tr>
 	<% end %> 
 </table>
 <%= link_to "Back" ,posts_path %>
+</div>

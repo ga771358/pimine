@@ -24,8 +24,9 @@
   <strong>Location:</strong>
   <%= @posts.location %>
 </p>
-
-目前有<%=@posts.userposts.size%>個人在排
+<% if !@posts.is_sold %>
+目前有<%= @posts.userposts.size %>個人在排
+<% end %>
 <% if @same_user == false and @buy_twice == false %>
   <%= link_to '我想排', userposts_path(pid:@posts.id) , :method => :post , class: "btn btn-primary" %>
 <% end %>

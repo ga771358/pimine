@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(post_params)
+		@post.user_id = session[:verify]
 		@post.save
 
 		redirect_to posts_path
@@ -24,6 +25,6 @@ class PostsController < ApplicationController
 	end
 
 	def post_params
-		params.require(:post).permit(:user_id,:title,:type,:price,:tclick,:location,:content,:is_sold)
+		params.require(:post).permit(:user_id,:title,:itype,:price,:tclick,:location,:content,:is_sold)
 	end
 end

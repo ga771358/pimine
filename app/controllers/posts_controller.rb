@@ -50,9 +50,9 @@ class PostsController < ApplicationController
 	end
 
 	def complete
-		sell = Post.where(user_id: session[:verify])
-		@c_sell = sell.where(is_sold: true)
-		@buy = Post.where(buyer_id: session[:verify])
+		@allpost = Post.where(is_sold: true)
+		@sellpost = @allpost.where(user_id: session[:verify])
+		@buypost = @allpost.where(buyer_id: session[:verify])
 	end
 
 	def not_finish

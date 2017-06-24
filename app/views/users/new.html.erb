@@ -1,3 +1,4 @@
+<div class="container">
 <%= flash[:error] %>
 <%= form_for @user,:url => users_path do |f| %>
 	
@@ -20,3 +21,4 @@
 <% end %>
 
 <%= link_to "login", users_login_path ,class: "btn btn-info"  %>
+</div>

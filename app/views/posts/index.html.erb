@@ -1,24 +1,45 @@
-<table>
-	<% @posts.each do |po| %>
-		<tr>
-			<td><%= po.title %></td>
-			<td><%= po.price %></td>
-			<td><%= link_to 'show', post_path(po) ,class: "btn btn-primary" %></td>
-		</tr>
-	<% end %> 
-</table>
+<div class="jumbotron">
+	<h1>拍賣版</h1>
+</div>
+<div class="container">
+	<div class="rows">
+		<table class="table table-striped" style="background-color: white; padding:15px; ">
+			<tr>
+				<th>標題</th>
+				<th>物品</th>
+				<th>種類</th>
+				<th>價格</th>
+				<th>功能</th>
+			</tr>
+			<% @posts.each do |po| %>
+				<tr>
+					<td><%= po.title %></td>
+					<td><%= image_tag po.avatar.url ,class: "imagepls"%></td>
+					<td><%= po.itype %></td>
+					<td><%= po.price %></td>
+					<td><%= link_to 'show', post_path(po) ,class: "btn btn-primary" %></td>
+				</tr>
+			<% end %> 
+		</table>
+	</div>
+	<hr>
+	<div class="rows">
+	<%= form_for @post, :url => posts_search_path  do |f| %>
+		<%= f.text_field :title %>
+		<%= f.label :itype,"種類" %>
+		<%= f.select :itype, options_for_select(["食物","衣服","電器","書籍","交通","其他"],["food","cloth","elec","book","car","other"]) %>
+		<br>
+		<%= f.submit  "search" ,class: "btn btn-primary" %>
+		
+	<% end %>
+	</div>
 
-<%= form_for @post, :url => posts_search_path  do |f| %>
-	<%= f.text_field :title %>
-	<%= f.label :itype,"種類" %>
-	<%= f.select :itype, options_for_select(["食物","衣服","電器","書籍","交通","其他"],["food","cloth","elec","book","car","other"]) %>
-	<br>
-	<%= f.submit  "search" ,class: "btn btn-primary" %>
+	<hr>
 	
-<% end %>
-
-<br>
-<%= link_to "logout", posts_logout_path,class: "btn btn-primary"  %>
-<%= link_to "New", new_post_path, class: "btn btn-primary"  %>
-<%= link_to "進行中", posts_not_finish_path, class: "btn btn-primary"  %>
-<%= link_to "已完成", posts_complete_path, class: "btn btn-primary"  %>
+	<div class="rows">
+	<%= link_to "logout", posts_logout_path,class: "btn btn-primary"  %>
+	<%= link_to "New", new_post_path, class: "btn btn-primary"  %>
+	<%= link_to "進行中", posts_not_finish_path, class: "btn btn-primary"  %>
+	<%= link_to "已完成", posts_complete_path, class: "btn btn-primary"  %>
+	</div>
+</div>

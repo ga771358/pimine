@@ -4,7 +4,8 @@ class UserpostsController < ApplicationController
 
     def create
         @post = Post.find(params[:pid])
-        @post.userposts.create(user_id: session[:verify])
+        t_num = @post.userposts.size
+        @post.userposts.create(user_id: session[:verify],order: t_num+1)
 
         redirect_to post_path(params[:pid])
     end

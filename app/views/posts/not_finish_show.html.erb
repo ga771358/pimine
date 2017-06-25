@@ -6,6 +6,9 @@
 		<tr>
 			<th>標題</th>
 			<th>物品</th>
+			<% if @post.user_id != session[:verify] %>
+				<th>排/總人數</th>
+			<% end %>
 			<th>種類</th>
 			<th>價格</th>
 			<th>補充說明</th>
@@ -13,6 +16,9 @@
 		<tr>
 			<td><%= @post.title %></td>
 			<td><%= image_tag @post.avatar.url,class: "imagepls"%></td>
+			<% if @post.user_id != session[:verify] %>
+				<td><%= n.order %> / <%= m.userposts.size %></td>
+			<% end %>
 			<td><%= @post.itype %></td>
 			<td><%= @post.price %></td>
 			<td><%= @post.content %></td>
@@ -22,16 +28,18 @@
 		<table class="table table-striped" style="background-color: white; padding:15px; ">
 			<tr>
 				<th>購買者</th>
+				<th>排第幾</th>
 				<th>信箱</th>
 				<th>賣給他</th>
 			</tr>
-			<tr>
-				<% @paipeople.each do |e| %>
+			<% @paipeople.each do |e| %>
+				<tr>
 					<td><%= e.user.name %></td>
+					<td><%= e.order %></td>
 					<td><%= e.user.email %></td>
 					<td><%= link_to "販賣", controller: "posts" ,action: "not_finish_sell",post_id: params[:id],buyer_id: e.user_id %></td>
-				<% end %>
-			</tr>
+				</tr>	
+			<% end %>
 		</table>
 	 <% end %>
 	<br>

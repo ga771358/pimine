@@ -2,7 +2,7 @@
 	<h1>未完成交易</h1>
 </div>
 <div class="container">
-	<h1>還沒賣出的商品</h1>
+	<h3>還沒賣出的商品</h3>
 	<table class="table table-striped" style="background-color: white; padding:15px; ">
 		<tr>
 			<th>標題</th>
@@ -10,6 +10,8 @@
 			<th>種類</th>
 			<th>價格</th>
 			<th>功能</th>
+			<th></th>
+			<th></th>
 		</tr>
 		<% @n_sell.each do |n| %>
 			<tr>
@@ -17,11 +19,13 @@
 				<td><%= image_tag n.avatar.url ,class: "imagepls"%></td>
 				<td><%= n.itype %></td>
 				<td><%= n.price %></td>
-				<td><%= link_to "詳細內容", controller: "posts", action: "not_finish_show",id: n %></td>
+				<td><%= link_to "詳細內容", controller: "posts", action: "not_finish_show", id: n %></td>
+				<td><%= link_to "修改貼文", controller: "posts", action: "edit", id: n %></td>
+				<td><%= link_to "刪除貼文", post_path(n), :method => :delete, :data => { :confirm => "Are you sure?" }  %></td>
 			</tr>
 		<% end %> 
 	</table>
-	<h1>還沒購買的商品</h1>
+	<h3>正在排的商品</h3>
 	<table class="table table-striped" style="background-color: white; padding:15px; ">
 		<tr>
 			<th>標題</th>
@@ -38,7 +42,7 @@
 					<td><%= image_tag m.avatar.url ,class: "imagepls"%></td>
 					<td><%= m.itype %></td>
 					<td><%= m.price %></td>
-					<td><%= link_to "詳細內容", controller: "posts", action: "not_finish_show",id: n %></td>
+					<td><%= link_to "詳細內容", controller: "posts", action: "not_finish_show",id: m %></td>
 				</tr>
 				<% end %> 
 			<% end %> 

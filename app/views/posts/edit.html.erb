@@ -1,0 +1,42 @@
+<div class="jumbotron">
+	<h1>修改物品</h1>
+</div>
+<div class="container">
+<%= flash[:error] %>
+<%= form_for @post, :url => post_path(@post),  html: { multipart: true } ,:method => :patch  do |f| %>
+	
+
+	<%= f.hidden_field :user_id %>
+
+	<%= f.label :title  %>
+	<%= f.text_field :title %>
+	<br>
+	
+	<%= f.label :itype %>
+	<%= f.select :itype, options_for_select(["食物","衣服","電器","書籍","交通","其他"],["food","cloth","elec","book","car","other"]) %>
+	<br>
+	
+	<%= f.label :price %>
+	<%= f.text_field :price %>
+	<br>
+	
+	<%= f.hidden_field :tclick, value: "0" %>
+
+	<%= f.label :location %>
+	<%= f.select :location, options_for_select(["九舍","八舍","七舍","女二","竹軒","女十舍"],["9","8","7","g2","g1","g10"]) %>
+	<br>
+
+	<%= f.label :content %>
+	<%= f.text_area :content%>
+	<br>
+
+	<%= f.file_field :avatar %>
+
+	<%= f.hidden_field :is_sold, value: false %>
+	<%= f.hidden_field :buyer_id, value: -1 %>
+
+	<%= f.submit  "修改物品" ,class: "btn btn-primary" %>
+<% end %>
+<br>
+<%= link_to "back", { controller: :posts, action: :not_finish }, class: "btn btn-warning" %>
+</div>

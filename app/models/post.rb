@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    has_many :userpost_postships
+    has_many :userpost_postships,:dependent => :destroy
     has_many :userposts, :through => :userpost_postships
     belongs_to :user
 

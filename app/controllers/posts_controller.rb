@@ -80,6 +80,24 @@ class PostsController < ApplicationController
 
 	end
 
+	def edit
+		@post = Post.find(params[:id])
+	end
+
+	def update
+		@post = Post.find(params[:id])
+		@post = @post.update(post_params)
+
+		redirect_to controller: :posts,action: :not_finish
+	end
+
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
+
+		redirect_to controller: :posts,action: :not_finish
+	end
+
 	def post_params
 		params.require(:post).permit(:user_id,:buyer_id,:title,:itype,:price,:tclick,:location,:content,:is_sold,:avatar)
 	end

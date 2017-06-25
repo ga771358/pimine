@@ -8,6 +8,7 @@
 		<th>物品</th>
 		<th>種類</th>
 		<th>價格</th>
+		<th></th>
 	</tr>
 	<% @sellpost.each do |n| %>
 		<tr>
@@ -15,6 +16,7 @@
 			<td><%= image_tag n.avatar.url ,class: "imagepls"%></td>
             <td><%= n.itype %></td>
             <td><%= n.price %></td>
+			<td><%= link_to "刪除貼文", post_path(n), :method => :delete, :data => { :confirm => "Are you sure?" }  %></td>
 		</tr>
 	<% end %> 
 </table>
@@ -25,6 +27,7 @@
 		<th>物品</th>
 		<th>種類</th>
 		<th>價格</th>
+		<th></th>
 	</tr>
 	<% @buypost.each do |n| %>
 		<tr>
@@ -32,6 +35,7 @@
 			<td><%= image_tag n.avatar.url ,class: "imagepls"%></td>
             <td><%= n.itype %></td>
             <td><%= n.price %></td>
+			<td><%= link_to "刪除貼文", post_path(n), :method => :delete, :data => { :confirm => "Are you sure?" }  %></td>
 		</tr>
 	<% end %> 
 </table>

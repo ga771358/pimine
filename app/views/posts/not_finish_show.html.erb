@@ -8,6 +8,8 @@
 			<th>物品</th>
 			<% if @post.user_id != session[:verify] %>
 				<th>排/總人數</th>
+			<% else %>
+				<th>幾個人排</th>
 			<% end %>
 			<th>種類</th>
 			<th>價格</th>
@@ -18,6 +20,8 @@
 			<td><%= image_tag @post.avatar.url,class: "imagepls"%></td>
 			<% if @post.user_id != session[:verify] %>
 				<td><%= @post.userposts.where(user_id:session[:verify])[0].order %> / <%= @post.userposts.size %></td>
+			<% else %>
+				<td><%= @post.userposts.size %></td>
 			<% end %>
 			<td><%= @post.itype %></td>
 			<td><%= @post.price %></td>

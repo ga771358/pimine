@@ -14,6 +14,8 @@
 			<% @post.each do |p| %>
 				<tr>
 					<td><%= p.title %></td>
+					<td><%= image_tag p.avatar.url ,class: "imagepls"%></td>
+					<td><%= p.itype %></td>
 					<td><%= p.price %></td>
 					<td><%= link_to 'show', post_path(p) ,class: "btn btn-primary" %></td>
 				</tr>

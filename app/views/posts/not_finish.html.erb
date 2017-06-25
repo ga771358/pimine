@@ -2,6 +2,7 @@
 	<h1>未完成交易</h1>
 </div>
 <div class="container">
+	<h1>還沒賣出的商品</h1>
 	<table class="table table-striped" style="background-color: white; padding:15px; ">
 		<tr>
 			<th>標題</th>
@@ -18,6 +19,29 @@
 				<td><%= n.price %></td>
 				<td><%= link_to "詳細內容", controller: "posts", action: "not_finish_show",id: n %></td>
 			</tr>
+		<% end %> 
+	</table>
+	<h1>還沒購買的商品</h1>
+	<table class="table table-striped" style="background-color: white; padding:15px; ">
+		<tr>
+			<th>標題</th>
+			<th>物品</th>
+			<th>種類</th>
+			<th>價格</th>
+			<th>功能</th>
+		</tr>
+		<% @buy.each do |n| %>
+			<% n.posts.each do |m| %>
+				<% if !m.is_sold %>
+				<tr>
+					<td><%= m.title %></td>
+					<td><%= image_tag m.avatar.url ,class: "imagepls"%></td>
+					<td><%= m.itype %></td>
+					<td><%= m.price %></td>
+					<td><%= link_to "詳細內容", controller: "posts", action: "not_finish_show",id: n %></td>
+				</tr>
+				<% end %> 
+			<% end %> 
 		<% end %> 
 	</table>
 	<%= link_to "Back" ,posts_path,class: "btn btn-warning" %>

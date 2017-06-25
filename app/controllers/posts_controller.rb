@@ -57,7 +57,10 @@ class PostsController < ApplicationController
 
 	def not_finish
 		sell = Post.where(user_id: session[:verify])
+		buyer = User.find(session[:verify])
+		@buy = buyer.userposts
 		@n_sell = sell.where(is_sold: false)
+
 	end
 
 	def not_finish_show

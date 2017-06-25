@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :posts
     has_many :userposts
+
     validates :name, presence: true
     validates :sid, presence: true
     validates :email, presence: true

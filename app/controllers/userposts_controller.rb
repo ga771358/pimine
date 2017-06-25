@@ -9,7 +9,11 @@ class UserpostsController < ApplicationController
 
         redirect_to post_path(params[:pid])
     end
-
+    def destroy
+        @post = Post.find(params[:post_id])
+        @post.userposts.where(id: params[:id])[0].destroy
+        redirect_to controller: :posts,action: :not_finish_show , id: params[:post_id]
+    end
 	def check_session
 		if session[:verify] == nil
 			redirect_to root_path

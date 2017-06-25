@@ -21,11 +21,13 @@
 	<table class="table table-striped" style="background-color: white; padding:15px; ">
 		<tr>
 			<th>購買者</th>
+			<th>信箱</th>
 			<th>賣給他</th>
 		</tr>
 		<tr>
 			<% @paipeople.each do |e| %>
-				<td><%= e.user_id %></td>
+				<td><%= e.user.name %></td>
+				<td><%= e.user.email %></td>
 				<td><%= link_to "販賣", controller: "posts" ,action: "not_finish_sell",post_id: params[:id],buyer_id: e.user_id %></td>
 			<% end %>
 		</tr>

@@ -36,6 +36,7 @@
 			<th>種類</th>
 			<th>價格</th>
 			<th>功能</th>
+			<th></th>
 		</tr>
 		<% @buy.each do |n| %>
 			<% n.posts.each do |m| %>
@@ -47,6 +48,7 @@
 					<td><%= m.itype %></td>
 					<td><%= m.price %></td>
 					<td><%= link_to "詳細內容", controller: "posts", action: "not_finish_show",id: m %></td>
+					<td><%= link_to "不排了", {controller: "userposts", action: "buyer_destroy",post_id: m ,id:n}%>
 				</tr>
 				<% end %> 
 			<% end %> 

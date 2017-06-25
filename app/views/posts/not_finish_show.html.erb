@@ -42,7 +42,7 @@
 				<td><%= buyer.user.name %></td>
 				<td><%= buyer.order %></td>
 				<td><%= buyer.user.email %></td>
-				<td><%= link_to "販賣", controller: "posts" ,action: "not_finish_sell",post_id: params[:id],buyer_id: buyer.user_id %></td>
+				<td><%= link_to "販賣", { controller: "posts" , action: "not_finish_sell" , post_id: params[:id],buyer_id: buyer.user_id }, :data => { :confirm => "確定要賣嗎？賣了就不能反悔哦！"  }%></td>
 				<td><%= link_to "下一位", userpost_path(buyer,post_id: params[:id]),method: :delete %></td>
 			</tr>
 		</table>

@@ -32,7 +32,7 @@
 目前有<%= @posts.userposts.size %>個人在排
 <% end %>
 <% if @same_user == false and @buy_twice == false %>
-  <%= link_to '我想排', userposts_path(pid:@posts.id) , :method => :post , class: "btn btn-primary" %>
+  <%= link_to '我想排', userposts_path(pid:@posts.id) , data: { confirm: "確定要買再排唷！"} ,:method => :post , class: "btn btn-primary" %>
 <% end %>
 <% if @same_user == true %>
   <p>你的貼文唷</p>
